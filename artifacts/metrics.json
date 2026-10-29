@@ -1,0 +1,404 @@
+{
+  "target_definition": "Target = self-reported EXISTING coronary heart disease or myocardial infarction (BRFSS _MICHD: ever told by a health professional). It is NOT a prediction of a future heart attack and the output is NOT a diagnosis.",
+  "validation_candidates": {
+    "dummy_prior": {
+      "n": 52822,
+      "prevalence": 0.08998144712430427,
+      "pr_auc": 0.08998144712430427,
+      "roc_auc": 0.5,
+      "brier": 0.08188478630156446,
+      "threshold": 0.08998340777522201,
+      "precision": 0.08998144712430427,
+      "recall": 1.0,
+      "specificity": 0.0,
+      "f1": 0.1651063829787234,
+      "f2": 0.33083219645293316,
+      "balanced_accuracy": 0.5,
+      "mcc": 0.0,
+      "tn": 0,
+      "fp": 48069,
+      "fn": 0,
+      "tp": 4753
+    },
+    "logistic_regression": {
+      "n": 52822,
+      "prevalence": 0.08998144712430427,
+      "pr_auc": 0.35257459196141183,
+      "roc_auc": 0.8408901272728188,
+      "brier": 0.06856353485572333,
+      "threshold": 0.09070058560831366,
+      "precision": 0.22694485842026826,
+      "recall": 0.8009678098043341,
+      "specificity": 0.7302211404439451,
+      "f1": 0.3536789297658863,
+      "f2": 0.5318970575907453,
+      "balanced_accuracy": 0.7655944751241397,
+      "mcc": 0.32651238216461625,
+      "tn": 35101,
+      "fp": 12968,
+      "fn": 946,
+      "tp": 3807,
+      "cv_best_pr_auc": 0.34854991753166265
+    },
+    "hist_gradient_boosting": {
+      "n": 52822,
+      "prevalence": 0.08998144712430427,
+      "pr_auc": 0.35457691394867225,
+      "roc_auc": 0.8430923515921911,
+      "brier": 0.06829221173396031,
+      "threshold": 0.09367049365402155,
+      "precision": 0.22698251685661436,
+      "recall": 0.8003366294971597,
+      "specificity": 0.7304915850132102,
+      "f1": 0.3536630717738936,
+      "f2": 0.5317156355707138,
+      "balanced_accuracy": 0.765414107255185,
+      "mcc": 0.3263739388535338,
+      "tn": 35114,
+      "fp": 12955,
+      "fn": 949,
+      "tp": 3804,
+      "cv_best_pr_auc": 0.34775874279514524
+    }
+  },
+  "validation_selected_oof_calibrated": {
+    "n": 52822,
+    "prevalence": 0.08998144712430427,
+    "pr_auc": 0.3466013483713824,
+    "roc_auc": 0.8398100581770742,
+    "brier": 0.06849514288187103,
+    "threshold": 0.09986684420772303,
+    "precision": 0.22650817236255572,
+    "recall": 0.8018093835472333,
+    "specificity": 0.7292641827373151,
+    "f1": 0.3532301418111039,
+    "f2": 0.531713034015124,
+    "balanced_accuracy": 0.7655367831422741,
+    "mcc": 0.3261823412951805,
+    "tn": 35055,
+    "fp": 13014,
+    "fn": 942,
+    "tp": 3811,
+    "rule": "highest precision subject to recall >= 0.8",
+    "val_precision_at_threshold": 0.22650817236255572,
+    "val_recall_at_threshold": 0.8018093835472333
+  },
+  "test": {
+    "metrics": {
+      "n": 52822,
+      "prevalence": 0.08998144712430427,
+      "pr_auc": 0.32786609652956544,
+      "roc_auc": 0.8359259075283363,
+      "brier": 0.06921869132602951,
+      "threshold": 0.09986684420772303,
+      "precision": 0.2264139554536126,
+      "recall": 0.789185777403745,
+      "specificity": 0.7333832615615054,
+      "f1": 0.3518761726078799,
+      "f2": 0.52713679417634,
+      "balanced_accuracy": 0.7612845194826252,
+      "mcc": 0.32229549510022054,
+      "tn": 35253,
+      "fp": 12816,
+      "fn": 1002,
+      "tp": 3751
+    },
+    "ci95": {
+      "pr_auc": [
+        0.31554604827781424,
+        0.3408984107113167
+      ],
+      "roc_auc": [
+        0.830324985122302,
+        0.8409062221250898
+      ],
+      "brier": [
+        0.06743270532636558,
+        0.07091639142327662
+      ],
+      "precision": [
+        0.2198344025765129,
+        0.23184727308117165
+      ],
+      "recall": [
+        0.7773661371284756,
+        0.8001341567291311
+      ],
+      "specificity": [
+        0.7295397745026058,
+        0.7372588108709693
+      ],
+      "f1": [
+        0.3436809089236744,
+        0.3590054047285338
+      ],
+      "balanced_accuracy": [
+        0.7554034883229334,
+        0.7671715452644025
+      ]
+    },
+    "calibration_slope": 0.958276526926002,
+    "calibration_intercept": -0.04475666793572417,
+    "reliability": [
+      {
+        "bin": 0,
+        "n": 5834,
+        "mean_predicted": 0.0024374361684391358,
+        "observed_rate": 0.0034281796366129585
+      },
+      {
+        "bin": 1,
+        "n": 6284,
+        "mean_predicted": 0.006506464484717257,
+        "observed_rate": 0.007797581158497772
+      },
+      {
+        "bin": 2,
+        "n": 8016,
+        "mean_predicted": 0.010995975620450371,
+        "observed_rate": 0.013847305389221557
+      },
+      {
+        "bin": 3,
+        "n": 1288,
+        "mean_predicted": 0.018694188667206974,
+        "observed_rate": 0.026397515527950312
+      },
+      {
+        "bin": 4,
+        "n": 7104,
+        "mean_predicted": 0.03473722121366723,
+        "observed_rate": 0.03420608108108108
+      },
+      {
+        "bin": 5,
+        "n": 4974,
+        "mean_predicted": 0.06193756351872231,
+        "observed_rate": 0.06172094893445919
+      },
+      {
+        "bin": 6,
+        "n": 3631,
+        "mean_predicted": 0.08731882237768211,
+        "observed_rate": 0.08702836684109061
+      },
+      {
+        "bin": 7,
+        "n": 5880,
+        "mean_predicted": 0.13879142951770052,
+        "observed_rate": 0.13894557823129253
+      },
+      {
+        "bin": 8,
+        "n": 4864,
+        "mean_predicted": 0.20468297807329802,
+        "observed_rate": 0.21484375
+      },
+      {
+        "bin": 9,
+        "n": 4947,
+        "mean_predicted": 0.3658279088400328,
+        "observed_rate": 0.36608045279967655
+      }
+    ],
+    "subgroups": {
+      "sex": {
+        "female": {
+          "n": 27912,
+          "prevalence": 0.07176124964173115,
+          "pr_auc": 0.2728506721186006,
+          "roc_auc": 0.827786996798407,
+          "precision": 0.20119521912350596,
+          "recall": 0.7059410883674488,
+          "specificity": 0.7833185379597823
+        },
+        "male": {
+          "n": 24910,
+          "prevalence": 0.11039743075070253,
+          "pr_auc": 0.3642002127177689,
+          "roc_auc": 0.8350074663603545,
+          "precision": 0.24499423419645666,
+          "recall": 0.8498181818181818,
+          "specificity": 0.675
+        }
+      },
+      "age_band": {
+        "18-39": {
+          "n": 12356,
+          "prevalence": 0.012301715765619942,
+          "pr_auc": 0.06380632457891341,
+          "roc_auc": 0.7604134321792682,
+          "precision": 0.1935483870967742,
+          "recall": 0.07894736842105263,
+          "specificity": 0.9959029826286463
+        },
+        "40-54": {
+          "n": 10202,
+          "prevalence": 0.03675749852970006,
+          "pr_auc": 0.20729919149097054,
+          "roc_auc": 0.8268971880194024,
+          "precision": 0.18757062146892656,
+          "recall": 0.44266666666666665,
+          "specificity": 0.9268342322173604
+        },
+        "55-64": {
+          "n": 8662,
+          "prevalence": 0.08947125375202032,
+          "pr_auc": 0.30189291883777836,
+          "roc_auc": 0.7964815110205852,
+          "precision": 0.21266968325791855,
+          "recall": 0.727741935483871,
+          "specificity": 0.7352605553442374
+        },
+        "65-74": {
+          "n": 10736,
+          "prevalence": 0.12919150521609538,
+          "pr_auc": 0.3226350661649676,
+          "roc_auc": 0.7620544451738994,
+          "precision": 0.2072202166064982,
+          "recall": 0.8276856524873828,
+          "specificity": 0.5302171355225158
+        },
+        "75+": {
+          "n": 9860,
+          "prevalence": 0.2013184584178499,
+          "pr_auc": 0.3749230236997464,
+          "roc_auc": 0.7164714085802246,
+          "precision": 0.25159677867259095,
+          "recall": 0.9128463476070529,
+          "specificity": 0.31555555555555553
+        }
+      },
+      "race_group_code": {
+        "1": {
+          "n": 38142,
+          "prevalence": 0.09705836086204184,
+          "pr_auc": 0.331749959173551,
+          "roc_auc": 0.8309592752387354,
+          "precision": 0.2292310067943175,
+          "recall": 0.8019989195029714,
+          "specificity": 0.7101335656213705
+        },
+        "2": {
+          "n": 3896,
+          "prevalence": 0.0803388090349076,
+          "pr_auc": 0.33748374796973757,
+          "roc_auc": 0.8432502971522426,
+          "precision": 0.21052631578947367,
+          "recall": 0.792332268370607,
+          "specificity": 0.7404409712531398
+        },
+        "3": {
+          "n": 786,
+          "prevalence": 0.11195928753180662,
+          "pr_auc": 0.42293956565548463,
+          "roc_auc": 0.8609989580619953,
+          "precision": 0.31196581196581197,
+          "recall": 0.8295454545454546,
+          "specificity": 0.7693409742120344
+        },
+        "4": {
+          "n": 1480,
+          "prevalence": 0.03513513513513514,
+          "pr_auc": 0.1516532772850991,
+          "roc_auc": 0.8396425878043525,
+          "precision": 0.12449799196787148,
+          "recall": 0.5961538461538461,
+          "specificity": 0.8473389355742297
+        },
+        "5": {
+          "n": 332,
+          "prevalence": 0.09337349397590361,
+          "pr_auc": 0.4413402964999291,
+          "roc_auc": 0.8821133854892295,
+          "precision": 0.2872340425531915,
+          "recall": 0.8709677419354839,
+          "specificity": 0.7774086378737541
+        },
+        "6": {
+          "n": 378,
+          "prevalence": 0.10317460317460317,
+          "pr_auc": 0.31335236404900485,
+          "roc_auc": 0.7899931926480599,
+          "precision": 0.21897810218978103,
+          "recall": 0.7692307692307693,
+          "specificity": 0.6843657817109144
+        },
+        "7": {
+          "n": 1303,
+          "prevalence": 0.09132770529547199,
+          "pr_auc": 0.37503048797627675,
+          "roc_auc": 0.8454498353395412,
+          "precision": 0.2558139534883721,
+          "recall": 0.7394957983193278,
+          "specificity": 0.7837837837837838
+        },
+        "8": {
+          "n": 5316,
+          "prevalence": 0.05379984951091046,
+          "pr_auc": 0.25195640227478,
+          "roc_auc": 0.8226414241821797,
+          "precision": 0.1833839918946302,
+          "recall": 0.6328671328671329,
+          "specificity": 0.8397614314115308
+        }
+      }
+    },
+    "prevalence_baseline_pr_auc": 0.08998144712430427,
+    "weighted_secondary": {
+      "pr_auc": 0.32376568136284617,
+      "roc_auc": 0.8569054049371594,
+      "note": "survey-weighted (_LLCPWT); secondary"
+    }
+  },
+  "decisions": {
+    "frozen_at": "2026-10-23T18:53:24",
+    "selected_model": "logistic_regression",
+    "selection_reason": "HGB-LR validation PR-AUC difference +0.0020 (95% paired bootstrap CI -0.0021..+0.0049); CI does not show HGB is better -> simpler logistic regression selected.",
+    "selection_paired_ap_diff": {
+      "point": 0.0020023219872604137,
+      "ci_lo": -0.0021410372696672466,
+      "ci_hi": 0.004883386009961792
+    },
+    "hyperparameters": {
+      "logistic_regression": {
+        "C": 1.0,
+        "class_weight": null
+      },
+      "hist_gradient_boosting": {
+        "min_samples_leaf": 50,
+        "max_leaf_nodes": 31,
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "l2_regularization": 0.0,
+        "class_weight": null
+      }
+    },
+    "calibration_method": "isotonic",
+    "calibration_oof_brier_on_val": {
+      "none": 0.06856353485572333,
+      "sigmoid": 0.0685716347061515,
+      "isotonic": 0.06849514288187103
+    },
+    "threshold": 0.09986684420772303,
+    "threshold_rule": "highest precision subject to recall >= 0.8",
+    "cfg": {
+      "seed": 42,
+      "cv_folds": 3,
+      "hgb_iter": 10,
+      "tune_rows": 120000,
+      "n_boot": 300,
+      "target_recall": 0.8,
+      "select_boot": 200
+    }
+  },
+  "data": {
+    "created": "2026-10-23T18:53:35",
+    "n_train": 246501,
+    "n_val": 52822,
+    "n_test": 52822,
+    "prev_train": 0.08998340777522201,
+    "prev_val": 0.08998144712430427,
+    "prev_test": 0.08998144712430427
+  }
+}

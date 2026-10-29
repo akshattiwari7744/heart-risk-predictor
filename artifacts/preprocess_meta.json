@@ -1,0 +1,195 @@
+{
+  "created": "2026-10-23T11:57:02",
+  "seed": 42,
+  "subset_file": "C:\\Users\\akshat tiwari\\Downloads\\Heart_Risk_Predictor\\data\\interim\\brfss_phase1_subset.parquet",
+  "subset_sha256": "debec6b179c051c2c72fa933c56c3e85b678106d4491d39c68d6a60001ea23ce",
+  "versions": {
+    "python": "3.14.2",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "joblib": "1.6.0"
+  },
+  "split": {
+    "train": {
+      "n": 246501,
+      "positive_rate": 0.08998340777522201
+    },
+    "val": {
+      "n": 52822,
+      "positive_rate": 0.08998144712430427
+    },
+    "test": {
+      "n": 52822,
+      "positive_rate": 0.08998144712430427
+    }
+  },
+  "features": {
+    "age_group_5yr": {
+      "source": "_AGEG5YR",
+      "kind": "ordinal",
+      "evidence": "CDC25_CALC"
+    },
+    "sex_female": {
+      "source": "_SEX",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "bmi": {
+      "source": "_BMI5",
+      "kind": "continuous",
+      "evidence": "CDC25_CALC"
+    },
+    "gen_health": {
+      "source": "GENHLTH",
+      "kind": "ordinal",
+      "evidence": "CDC25_CALC"
+    },
+    "phys_unhealthy_days": {
+      "source": "PHYSHLTH",
+      "kind": "continuous",
+      "evidence": "CDC25_CALC"
+    },
+    "ment_unhealthy_days": {
+      "source": "MENTHLTH",
+      "kind": "continuous",
+      "evidence": "CDC25_CALC"
+    },
+    "any_physical_activity": {
+      "source": "_TOTINDA",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "hypertension_told": {
+      "source": "BPHIGH6",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "high_cholesterol_told": {
+      "source": "TOLDHI3",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "diabetes_status": {
+      "source": "DIABETE4",
+      "kind": "nominal",
+      "evidence": "QUEST_2021_22"
+    },
+    "asthma_ever": {
+      "source": "ASTHMA3",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "copd_ever": {
+      "source": "CHCCOPD3",
+      "kind": "binary",
+      "evidence": "CONVENTION"
+    },
+    "kidney_disease_ever": {
+      "source": "CHCKDNY2",
+      "kind": "binary",
+      "evidence": "CONVENTION"
+    },
+    "depression_ever": {
+      "source": "ADDEPEV3",
+      "kind": "binary",
+      "evidence": "CONVENTION"
+    },
+    "other_cancer_ever": {
+      "source": "CHCOCNC1",
+      "kind": "binary",
+      "evidence": "CONVENTION"
+    },
+    "smoker_status": {
+      "source": "_SMOKER3",
+      "kind": "nominal",
+      "evidence": "CDC25_CALC"
+    },
+    "heavy_drinker": {
+      "source": "_RFDRHV9",
+      "kind": "binary",
+      "evidence": "CDC25_CALC"
+    },
+    "education_level": {
+      "source": "_EDUCAG",
+      "kind": "ordinal",
+      "evidence": "CDC25_CALC"
+    },
+    "income_level": {
+      "source": "_INCOMG1",
+      "kind": "ordinal",
+      "evidence": "CDC25_CALC"
+    }
+  },
+  "groups": {
+    "continuous": [
+      "bmi",
+      "phys_unhealthy_days",
+      "ment_unhealthy_days"
+    ],
+    "ordinal": [
+      "age_group_5yr",
+      "gen_health",
+      "education_level",
+      "income_level"
+    ],
+    "binary": [
+      "sex_female",
+      "any_physical_activity",
+      "hypertension_told",
+      "high_cholesterol_told",
+      "asthma_ever",
+      "copd_ever",
+      "kidney_disease_ever",
+      "depression_ever",
+      "other_cancer_ever",
+      "heavy_drinker"
+    ],
+    "nominal": [
+      "diabetes_status",
+      "smoker_status"
+    ]
+  },
+  "output_shapes": {
+    "train": {
+      "linear": [
+        246501,
+        43
+      ],
+      "tree": [
+        246501,
+        19
+      ]
+    },
+    "val": {
+      "linear": [
+        52822,
+        43
+      ],
+      "tree": [
+        52822,
+        19
+      ]
+    },
+    "test": {
+      "linear": [
+        52822,
+        43
+      ],
+      "tree": [
+        52822,
+        19
+      ]
+    }
+  },
+  "fit_on_train_only_verified": true,
+  "train_medians": {
+    "bmi": 27.399999618530273,
+    "phys_unhealthy_days": 0.0,
+    "ment_unhealthy_days": 0.0,
+    "age_group_5yr": 8.0,
+    "gen_health": 3.0,
+    "education_level": 3.0,
+    "income_level": 5.0
+  }
+}

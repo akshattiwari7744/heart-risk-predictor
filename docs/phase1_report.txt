@@ -1,0 +1,18 @@
+================================================================
+PHASE 1 REPORT
+================================================================
+Rows in file: 356,158 (expected 356,158) -> PASS
+Columns in file: 283 (expected 283) -> PASS
+Rows with missing/non-1-2 _MICHD: 4,013 (expected 4,013) -> PASS
+Rows after dropping missing target: 352,145 (expected 352,145) -> PASS
+Positive rate among valid rows: 9.00%
+Candidate/alternate columns found: 28 ; spec entries missing: 1
+Missing: AGE
+Corrections needed:
+  - Candidate/target `AGE` NOT FOUND. No similar column found.
+  - `SMOKDAY2` has 63.33% NaN among valid-target rows; decide: keep (+missing flag), skip-pattern category, or drop.
+  - Check `_BMI5` scaling: observed min=1202, max=9843 (expect values like 1200-7000 if stored x100).
+  - `PHYSHLTH` special codes seen: {'7': 7063, '9': 348, '77': 6559, '88': 206249, '99': 1444} (confirm 88='none', 77/99=don't know/refused).
+  - `MENTHLTH` special codes seen: {'7': 6393, '9': 247, '77': 4310, '88': 205957, '99': 1879} (confirm 88='none', 77/99=don't know/refused).
+Name-scan hits to review manually: FRNCHDA_
+Total runtime: 12s

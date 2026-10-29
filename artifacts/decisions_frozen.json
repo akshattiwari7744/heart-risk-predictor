@@ -1,0 +1,41 @@
+{
+  "frozen_at": "2026-10-23T18:53:24",
+  "selected_model": "logistic_regression",
+  "selection_reason": "HGB-LR validation PR-AUC difference +0.0020 (95% paired bootstrap CI -0.0021..+0.0049); CI does not show HGB is better -> simpler logistic regression selected.",
+  "selection_paired_ap_diff": {
+    "point": 0.0020023219872604137,
+    "ci_lo": -0.0021410372696672466,
+    "ci_hi": 0.004883386009961792
+  },
+  "hyperparameters": {
+    "logistic_regression": {
+      "C": 1.0,
+      "class_weight": null
+    },
+    "hist_gradient_boosting": {
+      "min_samples_leaf": 50,
+      "max_leaf_nodes": 31,
+      "max_iter": 200,
+      "learning_rate": 0.05,
+      "l2_regularization": 0.0,
+      "class_weight": null
+    }
+  },
+  "calibration_method": "isotonic",
+  "calibration_oof_brier_on_val": {
+    "none": 0.06856353485572333,
+    "sigmoid": 0.0685716347061515,
+    "isotonic": 0.06849514288187103
+  },
+  "threshold": 0.09986684420772303,
+  "threshold_rule": "highest precision subject to recall >= 0.8",
+  "cfg": {
+    "seed": 42,
+    "cv_folds": 3,
+    "hgb_iter": 10,
+    "tune_rows": 120000,
+    "n_boot": 300,
+    "target_recall": 0.8,
+    "select_boot": 200
+  }
+}

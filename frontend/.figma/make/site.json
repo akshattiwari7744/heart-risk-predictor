@@ -1,0 +1,10 @@
+{
+  "description": "Explore heart-health patterns with an educational assessment that estimates the likelihood of existing heart disease and explains results, without diagnosing or predicting future events.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,23 @@
+# Render blueprint for the FastAPI prediction API.
+# Python: PYTHON_VERSION must be a full version (Render docs). 3.14.6 is the version this project was tested on.
+# Create the service from this file in Render (New > Blueprint), then set API_CORS_ORIGINS
+# to your Vercel frontend URL (for example https://heart-risk-predictor.vercel.app).
+services:
+  - type: web
+    name: heart-risk-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-lock.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.6
+      - key: API_ENV
+        value: production
+      - key: API_CORS_ORIGINS
+        sync: false
+      - key: API_ENABLE_DOCS
+        value: "true"
+      - key: API_LOG_LEVEL
+        value: INFO

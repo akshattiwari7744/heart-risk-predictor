@@ -1,0 +1,43 @@
+﻿model_name,source_column,role,kind,evidence,code_map,description,note
+age_group_5yr,_AGEG5YR,model_input,ordinal,CDC25_CALC,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""5"": 5, ""6"": 6, ""7"": 7, ""8"": 8, ""9"": 9, ""10"": 10, ""11"": 11, ""12"": 12, ""13"": 13, ""14"": null}","Age group, 13 five-year bands (1=18-24 ... 13=80+); 14=DK/refused/missing -> NaN",AGE itself is not in the public file; _AGEG5YR is derived from it
+sex_female,_SEX,model_input,binary,CDC25_CALC,"{""1"": 0, ""2"": 1}","Calculated sex: 1 male -> 0, 2 female -> 1",
+bmi,_BMI5,model_input,continuous,CDC25_CALC,bmi,BMI stored x100 (codebook range 12.00-99.99) -> divide by 100,
+gen_health,GENHLTH,model_input,ordinal,CDC25_CALC,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""5"": 5, ""7"": null, ""9"": null}",General health 1 excellent .. 5 poor,
+phys_unhealthy_days,PHYSHLTH,model_input,continuous,CDC25_CALC,days,"Days physical health not good, 0-30; 88=none -> 0; 77/99 -> NaN","literal 7 and 9 are REAL day counts, not DK/refused"
+ment_unhealthy_days,MENTHLTH,model_input,continuous,CDC25_CALC,days,"Days mental health not good, 0-30; 88=none -> 0; 77/99 -> NaN","literal 7 and 9 are REAL day counts, not DK/refused"
+any_physical_activity,_TOTINDA,model_input,binary,CDC25_CALC,"{""1"": 1, ""2"": 0, ""9"": null}",Any leisure-time activity/exercise past 30 days,
+hypertension_told,BPHIGH6,model_input,binary,CDC25_CALC,"{""1"": 1, ""2"": 0, ""3"": 0, ""4"": 0, ""7"": null, ""9"": null}",Told high BP (same rule CDC uses for _RFHYPE6: 2 pregnancy-only/3 no/4 borderline -> 0),
+high_cholesterol_told,TOLDHI3,model_input,binary,CDC25_CALC,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Told cholesterol high,possible skip pattern (asked only if cholesterol checked) - NaN handled by indicator
+diabetes_status,DIABETE4,model_input,nominal,QUEST_2021_22,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""7"": null, ""9"": null}","1 yes, 2 yes-only-during-pregnancy, 3 no (inferred), 4 pre/borderline",code 3 = No is inferred; confirm in 2025 value_counts
+asthma_ever,ASTHMA3,model_input,binary,CDC25_CALC,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Ever told asthma,
+copd_ever,CHCCOPD3,model_input,binary,CONVENTION,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Ever told COPD/emphysema/chronic bronchitis,
+kidney_disease_ever,CHCKDNY2,model_input,binary,CONVENTION,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Ever told kidney disease,
+depression_ever,ADDEPEV3,model_input,binary,CONVENTION,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Ever told depressive disorder,
+other_cancer_ever,CHCOCNC1,model_input,binary,CONVENTION,"{""1"": 1, ""2"": 0, ""7"": null, ""9"": null}",Ever told cancer (non-skin-cancer item),
+smoker_status,_SMOKER3,model_input,nominal,CDC25_CALC,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""9"": null}","1 daily, 2 some days, 3 former, 4 never; 9 -> NaN",replaces SMOKE100+SMOKDAY2 (skip pattern is already resolved inside _SMOKER3)
+heavy_drinker,_RFDRHV9,model_input,binary,CDC25_CALC,"{""1"": 0, ""2"": 1, ""9"": null}","Heavy drinker flag (column name suffix resolved at runtime, e.g. _RFDRHV9)",
+education_level,_EDUCAG,model_input,ordinal,CDC25_CALC,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""9"": null}",Education 1-4,
+income_level,_INCOMG1,model_input,ordinal,CDC25_CALC,"{""1"": 1, ""2"": 2, ""3"": 3, ""4"": 4, ""5"": 5, ""6"": 6, ""7"": 7, ""9"": null}",Income 1-7,
+race_group,_RACE,eval_only,nominal,CDC25_CALC,1-8; 9->NaN,Race/ethnicity 1-8; eval-only (fairness-sensitive),subgroup evaluation only
+weight,_LLCPWT,eval_only,weight,CDC,,survey weight,secondary weighted metrics only
+,_MICHD,excluded_leakage_or_proxy,,spec,,target,
+,CVDINFR4,excluded_leakage_or_proxy,,spec,,direct source of target,
+,CVDCRHD4,excluded_leakage_or_proxy,,spec,,direct source of target,
+,CVDSTRK3,excluded_leakage_or_proxy,,spec,,related CV outcome,
+,BPMEDS1,excluded_leakage_or_proxy,,spec,,treatment proxy,
+,CHOLMED3,excluded_leakage_or_proxy,,spec,,treatment proxy,
+,CHECKUP1,excluded_leakage_or_proxy,,spec,,healthcare-contact proxy,
+,PERSDOC3,excluded_leakage_or_proxy,,spec,,healthcare-contact proxy,
+,MEDCOST1,excluded_leakage_or_proxy,,spec,,healthcare-contact proxy,
+,_HLTHPL2,excluded_leakage_or_proxy,,spec,,healthcare-contact proxy,
+,AGE,excluded,,,,not present in the public file (confirmed by Phase 1); use _AGEG5YR,
+,_AGE65YR,excluded,,,,coarser duplicate of _AGEG5YR,
+,SEXVAR,excluded,,,,redundant with _SEX,
+,EXERANY2,excluded,,,,source of _TOTINDA (duplicate),
+,SMOKE100,excluded,,,,component of _SMOKER3,
+,SMOKDAY2,excluded,,,,component of _SMOKER3; structurally missing for never-smokers (skip pattern),
+,_IMPRACE,excluded,,,,imputed race; not used,
+,MARITAL,excluded,,,,2025 codes not verified; excluded from v1,
+,EMPLOY1,excluded,,,,2025 codes not verified; excluded from v1,
+,FRNCHDA_,excluded,,,,French-fry intake intermediate (from FRENCHF1); unrelated to heart disease - name-scan false positive ('CHD' inside FRNCHDA_),
+,_STATE/_PSU/_STSTR/FMONTH/IDATE/IMONTH/IDAY/IYEAR/DISPCODE/SEQNO,excluded,,,,design/administrative fields,
