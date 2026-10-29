@@ -15,7 +15,14 @@ if str(SRC) not in sys.path:           # config.py / modeling.py live in src/ (n
 
 import config as C  # noqa: E402
 
-DEV_ORIGINS = ("http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000")
+DEV_ORIGINS = (
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:8443",
+    "http://127.0.0.1:8443",
+)
 _ORIGIN_RE = re.compile(r"^https?://[A-Za-z0-9.-]+(:\d{1,5})?$")
 
 
